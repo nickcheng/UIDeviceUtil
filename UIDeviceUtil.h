@@ -18,6 +18,8 @@
 #define IS_SIMULATOR        ( [UIDeviceUtil hardware]==SIMULATOR )
 #define IS_IPHONE_6         ( IS_IPHONE && ([UIDeviceUtil hardware]==IPHONE_6 || IS_SCREEN_HEIGHT_EQUAL(667.0)) )
 #define IS_IPHONE_6_PLUS    ( IS_IPHONE && ([UIDeviceUtil hardware]==IPHONE_6_PLUS || IS_SCREEN_HEIGHT_EQUAL(736.0)) )
+#define IS_SERIES_5         ( IS_SCREEN_HEIGHT_EQUAL(568.0) )
+#define IS_SERIES_6         ( IS_IPHONE_6 && IS_IPHONE_6_PLUS )
 
 typedef NS_ENUM(int32_t, Hardware)
 {
