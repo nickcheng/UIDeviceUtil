@@ -21,8 +21,7 @@
 #define IS_SERIES_5         ( IS_SCREEN_HEIGHT_EQUAL(568.0) )
 #define IS_SERIES_6         ( (IS_IPHONE_6) || (IS_IPHONE_6_PLUS) )
 
-typedef NS_ENUM(int32_t, Hardware)
-{
+typedef NS_ENUM(NSUInteger, Hardware) {
   NOT_AVAILABLE,
   
   IPHONE_2G,
@@ -37,7 +36,6 @@ typedef NS_ENUM(int32_t, Hardware)
   IPHONE_5C_CDMA_GSM,
   IPHONE_5S,
   IPHONE_5S_CDMA_GSM,
-
   IPHONE_6_PLUS,
   IPHONE_6,
 
@@ -78,7 +76,8 @@ typedef NS_ENUM(int32_t, Hardware)
 };
 
 
-@interface UIDeviceUtil : NSObject 
+@interface UIDeviceUtil : NSObject
+
 /** This method retruns the hardware type */
 + (NSString*)hardwareString;
 
@@ -88,11 +87,11 @@ typedef NS_ENUM(int32_t, Hardware)
 /** This method returns the readable description of hardware string */
 + (NSString*)hardwareDescription;
 
-/** This method returs the readble description without identifier (GSM, CDMA, GLOBAL) */
-+ (NSString *)hardwareSimpleDescription;
-
-/** This method returns YES if the current device is better than the hardware passed */
-+ (BOOL)isCurrentDeviceHardwareBetterThan:(Hardware)hardware;
+/**
+ This method returns the hardware number not actual but logically.
+ e.g. if the hardware string is 5,1 then hardware number would be 5.1
+ */
++ (float)hardwareNumber:(Hardware)hardware;
 
 /** This method returns the resolution for still image that can be received
  from back camera of the current device. Resolution returned for image oriented landscape right. **/
